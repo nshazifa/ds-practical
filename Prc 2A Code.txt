@@ -1,3 +1,6 @@
+// csv to horus
+//country.csv file and HORUS-CSV-country file
+
 # Utility Start CSV to HORUS =================================
 # Standard Tools
 #=============================================================
@@ -28,4 +31,5 @@ OutputData=ProcessData
 sOutputFileName='C:/Users/Administrator/Desktop/DS Practical/PRC 2A/HORUS-CSV-Country.csv'
 OutputData.to_csv(sOutputFileName, index = False)
 print('CSV to HORUS - Done')
+
 # Utility done ===============================================
