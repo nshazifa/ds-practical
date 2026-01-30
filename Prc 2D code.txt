@@ -1,3 +1,6 @@
+// MySQL database to HORUS format 
+// database file name is utility
+
 # Utility Start Database to HORUS =================================
 # Standard Tools
 #=============================================================
@@ -33,3 +36,4 @@ sOutputFileName='C:/Users/Administrator/Desktop/DS Practical/PRC 2D/HORUS-CSV-Co
 OutputData.to_csv(sOutputFileName, index = False)
 print('Database to HORUS - Done')
 # Utility done ===============================================
+
