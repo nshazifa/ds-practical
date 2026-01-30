@@ -1,0 +1,152 @@
+Great 👍
+**Practical 10 = Data Visualization using Power BI** in syllabus, but since you’re asking for **code**, most colleges accept either:
+
+✅ Python visualization code (for lab record)
+AND / OR
+✅ Steps to import same file into Power BI
+
+I’ll give you **Python code** that you can run + mention how to use same file in Power BI.
+
+---
+
+# ✅ PRACTICAL 10 – DATA VISUALIZATION
+
+**Input file (from your repo):**
+
+```
+IP_DATA_ALL.csv
+```
+
+---
+
+## 🔹 10a – Bar Chart (Country-wise IP Count)
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("IP_DATA_ALL.csv")
+
+country_count = df['Country'].value_counts().head(10)
+
+plt.figure()
+country_count.plot(kind='bar')
+plt.title("Top 10 Countries by IP Count")
+plt.xlabel("Country")
+plt.ylabel("Number of IPs")
+plt.show()
+```
+
+---
+
+## 🔹 10b – Histogram (Latitude Distribution)
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("IP_DATA_ALL.csv")
+
+plt.figure()
+plt.hist(df['Latitude'], bins=30)
+plt.title("Latitude Distribution")
+plt.xlabel("Latitude")
+plt.ylabel("Frequency")
+plt.show()
+```
+
+---
+
+## 🔹 10c – Scatter Plot (Latitude vs Longitude)
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("IP_DATA_ALL.csv")
+
+plt.figure()
+plt.scatter(df['Longitude'], df['Latitude'])
+plt.title("IP Location Scatter Plot")
+plt.xlabel("Longitude")
+plt.ylabel("Latitude")
+plt.show()
+```
+
+---
+
+## 🔹 10d – Pie Chart (Region Distribution)
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("IP_DATA_ALL.csv")
+
+region_count = df['Region'].value_counts().head(5)
+
+plt.figure()
+plt.pie(region_count, labels=region_count.index, autopct='%1.1f%%')
+plt.title("Top Regions Distribution")
+plt.show()
+```
+
+---
+
+## 🔹 10e – Line Chart (Sample Trend)
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("IP_DATA_ALL.csv")
+
+sample = df.head(50)
+
+plt.figure()
+plt.plot(sample.index, sample['Latitude'])
+plt.title("Latitude Trend")
+plt.xlabel("Index")
+plt.ylabel("Latitude")
+plt.show()
+```
+
+---
+
+# ✅ POWER BI METHOD (FOR RECORD / VIVA)
+
+1. Open **Power BI Desktop**
+2. Click **Get Data → Text/CSV**
+3. Select `IP_DATA_ALL.csv`
+4. Click **Load**
+5. Insert visuals:
+
+   * Bar chart → Country vs Count
+   * Pie chart → Region
+   * Scatter → Latitude vs Longitude
+   * Line → Latitude trend
+
+---
+
+# ✅ WHAT TO WRITE IN PRACTICAL FILE
+
+**Aim:**
+To visualize IP data using graphs.
+
+**Tool:**
+Python / Power BI
+
+**Result:**
+Different charts generated successfully.
+
+---
+
+## 🎯 FINAL ANSWER
+
+✔ Practical 10 does **not require new dataset**
+✔ Use same `IP_DATA_ALL.csv`
+✔ Above codes are sufficient for exam & record
+
+---
+
+If you want, I can now **combine Practical 5–10 into one clean lab-manual format (Aim, Algorithm, Code, Output)** for printing 📘📄
