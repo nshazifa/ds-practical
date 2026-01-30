@@ -1,0 +1,5 @@
+Practical 5 Assessing Data
+A. Drop the Columns Where All Elements Are Missing Values
+B. Drop the Columns Where Any of the Elements Is Missing Values
+C. Keep Only the Rows That Contain a Maximum of Two Missing Values
+D. Write Python / R program to create the network routing diagram from the given data onrouters.
