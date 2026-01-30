@@ -1,0 +1,23 @@
+library(readr)
+
+
+IP_DATA_ALL <- read_csv("C:/VKHCG/01-Vermeulen/00-RawData/IP_DATA_ALL.csv")
+
+
+View(IP_DATA_ALL)
+
+
+spec(IP_DATA_ALL)
+
+
+cols(
+  ID = col_double(),
+  Country = col_character(),
+  `Place Name` = col_character(),
+  `Post Code` = col_double(),
+  Latitude = col_double(),
+  Longitude = col_double(),
+  `First IP Number` = col_double(),
+  `Last IP Number` = col_double()  # Added the backticks here
+)
+

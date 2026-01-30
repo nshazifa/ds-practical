@@ -1,0 +1,40 @@
+
+library(readr)
+library(data.table)
+
+
+FileName <- paste0('c:/VKHCG/01-Vermeulen/00-RawData/IP_DATA_ALL.csv')
+IP_DATA_ALL <- read_csv(FileName)
+
+
+hist_country <- data.table(Country = unique(IP_DATA_ALL$Country))
+
+
+pattern_country <- data.table(Country = hist_country$Country, PatternCountry = hist_country$Country)
+
+
+oldchar <- c(letters, LETTERS)
+newchar <- rep("A", length(oldchar))  # Replace all letters with 'A'
+
+
+for (r in seq_len(nrow(pattern_country))) {
+
+  s <- pattern_country[r, PatternCountry]
+  
+
+  s <- chartr(paste(oldchar, collapse = ""), paste(newchar, collapse = ""), s)
+  
+
+  s <- chartr("0123456789", "NNNNNNNNNN", s)
+  
+
+  s <- chartr(" ", "b", s)
+  
+
+  s <- chartr(".", "u", s)
+  
+
+  pattern_country[r, PatternCountry := s]
+}
+
+View(pattern_country)

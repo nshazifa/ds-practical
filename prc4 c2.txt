@@ -1,0 +1,52 @@
+# Load necessary libraries
+library(readr)
+library(data.table)
+
+# Define the base path and file name
+Base <- 'C:/VKHCG'
+FileName <- paste0(Base, '/01-Vermeulen/00-RawData/IP_DATA_ALL.csv')
+
+# Read the CSV file
+IP_DATA_ALL <- read_csv(FileName)
+
+# Create a data.table for unique latitudes
+hist_latitude <- data.table(Latitude = unique(IP_DATA_ALL$Latitude))
+
+# Convert Latitude to character and create a copy for pattern transformation
+pattern_latitude <- data.table(
+  latitude = hist_latitude$Latitude,
+  Patternlatitude = as.character(hist_latitude$Latitude)
+)
+
+# Define the old and new characters for replacement
+oldchar <- c(letters, LETTERS)
+newchar <- rep("A", length(oldchar))  # Replace all letters with 'A'
+
+# Loop through each row of pattern_latitude
+for (r in seq_len(nrow(pattern_latitude))) {
+  # Extract the string
+  s <- pattern_latitude[r, Patternlatitude]
+  
+  # Replace letters with 'A'
+  s <- chartr(paste(oldchar, collapse = ""), paste(newchar, collapse = ""), s)
+  
+  # Replace digits with 'N'
+  s <- chartr("0123456789", "NNNNNNNNNN", s)
+  
+  # Replace spaces with 'b'
+  s <- chartr(" ", "b", s)
+  
+  # Replace "+" with "u", "-" with "u", and "." with "u" using separate chartr() calls
+  s <- chartr("+", "u", s)
+  s <- chartr("-", "u", s)
+  s <- chartr(".", "u", s)
+  
+  # Assign the modified string back to the data.table
+  pattern_latitude[r, Patternlatitude := s]
+}
+
+# Sort the data.table by latitude
+setorder(pattern_latitude, latitude)
+
+# View the first 3 rows of the modified data.table
+View(pattern_latitude[1:3])
