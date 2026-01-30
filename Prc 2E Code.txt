@@ -1,3 +1,5 @@
+//Picture (angus.JPEG) to HORUS format
+
 from PIL import Image
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -42,3 +44,4 @@ print('Columns: ', ProcessData.shape[1])
 # Save the processed data to a CSV file
 OutputData = ProcessData
 OutputData.to_csv('Image_to_HORUS.csv', index=False)
+
