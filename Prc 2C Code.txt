@@ -1,3 +1,6 @@
+//JSON to HORUS
+// json file name is Country_Code.json
+
 # Utility Start JSON to HORUS =================================
 # Standard Tools
 #=============================================================
@@ -29,3 +32,4 @@ sOutputFileName='C:/Users/Administrator/Desktop/DS Practical/PRC 2C/HORUS-JSON-C
 OutputData.to_csv(sOutputFileName, index = False)
 print('JSON to HORUS - Done')
 # Utility done ===============================================
+
