@@ -1,3 +1,5 @@
+// xml to horus
+// file is Country_Code xml
 # Utility Start XML to HORUS =================================
 # Standard Tools
 import pandas as pd
@@ -61,3 +63,4 @@ print('=====================================================')
 print('XML to HORUS - Done')
 print('=====================================================')
 # Utility done ===============================================
+
